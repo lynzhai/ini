@@ -463,7 +463,8 @@ func (f *File) writeToBuffer(indent string) (*bytes.Buffer, error) {
 				if strings.ContainsAny(val, "\n`") {
 					val = `"""` + val + `"""`
 				} else if !f.options.IgnoreInlineComment && strings.ContainsAny(val, "#;") {
-					val = "`" + val + "`"
+					//val = "`" + val + "`"
+					val = `"` + val + `"`
 				} else if len(strings.TrimSpace(val)) != len(val) {
 					val = `"` + val + `"`
 				}
